@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="tabButton">
+        <attr name="src" />
+        <attr name="srcCheck" />
+        <attr name="text" />
+        <attr name="textColor" />
+    </declare-styleable>
+</resources>

@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@mipmap/login_background"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:padding="5dp"
+        android:text="@string/login_login"
+        android:gravity="center"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="16sp"
+        android:visibility="gone"/>
+
+    <LinearLayout
+        android:layout_marginTop="70dp"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_marginLeft="24dp"
+            android:layout_width="38dp"
+            android:layout_height="match_parent"
+            android:src="@mipmap/qq_login"
+          />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:textColor="@color/cBgNormal"
+            android:text="@string/login_qq"
+            android:textSize="32sp"/>
+
+    </LinearLayout>
+
+    <EditText
+        android:id="@+id/et_username"
+        android:layout_marginTop="32dp"
+        android:layout_width="match_parent"
+        android:layout_marginLeft="32dp"
+        android:layout_marginRight="32dp"
+        android:layout_height="50dp"
+        android:theme="@style/MyEditText"
+        android:hint="@string/login_name"
+        android:textColor="@color/smssdk_white"
+        android:textColorHint="@color/smssdk_white"
+        android:singleLine="true"
+        android:textSize="16sp"
+        />
+
+    <EditText
+        android:id="@+id/et_password"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginLeft="32dp"
+        android:layout_marginRight="32dp"
+        android:theme="@style/MyEditText"
+        android:hint="@string/login_password"
+        android:textColor="@color/smssdk_white"
+        android:textColorHint="@color/smssdk_white"
+        android:singleLine="true"
+        android:password="true"
+        android:textSize="16sp"
+        />
+
+    <Button
+        android:id="@+id/btn_login"
+        android:layout_width="match_parent"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="32dp"
+        android:layout_marginRight="32dp"
+        android:layout_height="40dp"
+        android:text= "@string/login_login"
+        android:textSize="18sp"
+        android:alpha="0.7"
+        android:textColor="@color/smssdk_white"
+        android:background="@drawable/login_btn"/>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="32dp"
+            android:layout_marginRight="32dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/tx_forget"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/btn_login"
+                android:textSize="16sp"
+                android:text="@string/login_forgit"/>
+
+            <TextView
+                android:id="@+id/tx_regist"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:textColor="@color/btn_login"
+                android:textSize="16sp"
+                android:text="@string/login_regist"/>
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/tx_protocol"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:textColor="@color/smssdk_white"
+        android:padding="38dp"
+        android:gravity="center"
+        android:textSize="14sp"
+
+        />
+</RelativeLayout>
