@@ -27,4 +27,14 @@ public class SettingFragment extends BaseFragment {
         return inflater.inflate(R.layout.fragment_setting, container, false);
     }
 
+    @Override
+    protected int getLayoutID() {
+        return 0;
+    }
+
+    @Override
+    protected void init() {
+
+    }
+
 }
