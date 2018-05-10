@@ -37,11 +37,11 @@ public class SharePrefreUtils {
     }
 
     public static String getAccount(){
-        return sharedPreferences.getString("ACCOUNT","");
+        return sharedPreferences.getString(ACCOUNT,"");
     }
 
     public static String getPassword(){
-        return sharedPreferences.getString("PASSWORD","");
+        return sharedPreferences.getString(PASSWORD,"");
     }
 
 

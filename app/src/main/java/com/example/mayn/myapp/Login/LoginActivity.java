@@ -22,6 +22,7 @@ import android.widget.Toast;
 import com.example.mayn.myapp.MainActivity;
 import com.example.mayn.myapp.MlogUtils.AlertDialogUtil;
 import com.example.mayn.myapp.MlogUtils.DialogUtil;
+import com.example.mayn.myapp.MyApp;
 import com.example.mayn.myapp.NetworkUtils.SharePrefreUtils;
 import com.example.mayn.myapp.R;
 
@@ -50,6 +51,7 @@ public class LoginActivity extends Activity{
     TextView txProtocol;
     DialogUtil dialogUtil;
     AlertDialogUtil alertDialogUtil;
+    Context mcontext;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -59,6 +61,7 @@ public class LoginActivity extends Activity{
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_login);
+        mcontext=this;
         ButterKnife.bind(this);
         dialogUtil=new DialogUtil(this);
         dialogUtil.creatDialog("正在登陆，请稍后");
@@ -67,11 +70,26 @@ public class LoginActivity extends Activity{
     }
 
     public void inite(){
+        if(!TextUtils.isEmpty(SharePrefreUtils.getAccount()) && !TextUtils.isEmpty(SharePrefreUtils.getPassword())){
+            etUsername.setText(SharePrefreUtils.getAccount());
+            etPassword.setText(SharePrefreUtils.getPassword());
+        }
         String protocolText = getResources().getString(R.string.login_condition);
         SpannableStringBuilder style=new SpannableStringBuilder(protocolText);
         style.setSpan(new ForegroundColorSpan(Color.parseColor("#00BFFF")),10,14, Spannable.SPAN_EXCLUSIVE_INCLUSIVE);     //设置指定位置textview的背景颜色
       //  style.setSpan(new ForegroundColorSpan(Color.RED),0,2,Spannable.SPAN_EXCLUSIVE_INCLUSIVE);     //设置指定位置文字的颜色
         txProtocol.setText(style);
+
+        if(SharePrefreUtils.getAccount().equals("baobao") && SharePrefreUtils.getPassword().equals("521")){
+            dialogUtil.showDialog();
+            btnLogin.postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    dialogUtil.closeDialog();
+                    startActivity(new Intent(mcontext, MainActivity.class));
+                }
+            },3000);
+        }
     }
 
     @OnClick({R.id.btn_login,R.id.tx_regist})
@@ -84,9 +102,15 @@ public class LoginActivity extends Activity{
             }
             dialogUtil.showDialog();
             if (etUsername.getText().toString().trim().equals("baobao") && etPassword.getText().toString().trim().equals("521")) {
-                dialogUtil.closeDialog();
-                SharePrefreUtils.savaUserInfor(etUsername.getText().toString().trim(), etPassword.getText().toString().trim());
-                startActivity(new Intent(this, MainActivity.class));
+                btnLogin.postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        dialogUtil.closeDialog();
+                        SharePrefreUtils.savaUserInfor(etUsername.getText().toString().trim(), etPassword.getText().toString().trim());
+                        startActivity(new Intent(mcontext, MainActivity.class));
+                    }
+                },3000);
+
             } else {
                 view.postDelayed(new Runnable() {
                     @Override

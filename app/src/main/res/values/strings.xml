@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">QQ</string>
     <string name="first_tab">首页</string>
+    <string name="first_video">视频</string>
     <string name="discorve_tab">发现</string>
     <string name="message_tab">信息</string>
     <string name="set_tab">设置</string>
@@ -15,4 +16,7 @@
     <string name="regist_suceess">注册成功</string>
     <string name="regist_fail">注册失败</string>
     <string name="username_password_null">账号或密码不能为空</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
