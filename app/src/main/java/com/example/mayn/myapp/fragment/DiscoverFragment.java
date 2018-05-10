@@ -26,15 +26,8 @@ public class DiscoverFragment extends BaseFragment {
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_discover, container, false);
-    }
-
-    @Override
     protected int getLayoutID() {
-        return 0;
+        return R.layout.fragment_discover;
     }
 
     @Override
