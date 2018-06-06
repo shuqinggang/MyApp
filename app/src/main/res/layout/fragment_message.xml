@@ -1,13 +1,16 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
+<LinearLayout android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.mayn.myapp.fragment.MessageFragment">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/message_lv"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="message" />
+       >
+    </android.support.v7.widget.RecyclerView>
 
-</FrameLayout>
+</LinearLayout>

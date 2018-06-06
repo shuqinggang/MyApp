@@ -4,6 +4,8 @@ import android.app.Activity;
 import android.util.DisplayMetrics;
 import android.view.View;
 
+import com.example.mayn.myapp.MyApp;
+
 /**
  * Created by mayn on 2018/5/2.
  */
@@ -31,8 +33,8 @@ public class PixelUtil {
 
 
     //DP转PX
-    public static int dp2px(Activity context, float dpValue) {
-        final float scale = context.getResources().getDisplayMetrics().density;
+    public static int dp2px(float dpValue) {
+        final float scale = MyApp.getContext().getResources().getDisplayMetrics().density;
         return (int) (dpValue * scale + 0.5f);
     }
 

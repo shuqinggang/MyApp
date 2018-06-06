@@ -1,9 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.mayn.basetools.SplashActivity">
+    android:orientation="vertical"
+   >
 
-</android.support.constraint.ConstraintLayout>
+    <TextView
+        android:id="@+id/tx_start"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:gravity="center"
+        android:text="启动"/>
+
+    <TextView
+        android:id="@+id/tx_stop"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:gravity="center"
+        android:text="停止"/>
+
+    <TextView
+        android:id="@+id/tx_all_stop"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:gravity="center"
+        android:text="全部停止"/>
+</LinearLayout>

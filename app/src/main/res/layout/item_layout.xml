@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="480dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <ImageView
+        android:id="@+id/item_img"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:src="@mipmap/ten"
+        android:scaleType="centerCrop"/>
+    <TextView
+        android:id="@+id/tx_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:textSize="18dp"
+        android:textColor="@color/smssdk_white"
+        android:text="我的照片"/>
+
+    <TextView
+        android:id="@+id/tx_comment"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/tx_name"
+        android:gravity="center"
+        android:textColor="@color/smssdk_white"
+        android:text=""
+        android:padding="10dp"
+        android:textSize="18dp"
+        />
+
+
+
+     <!--<TextView-->
+         <!--android:id="@+id/tx_likes"-->
+         <!--android:layout_width="wrap_content"-->
+         <!--android:layout_height="wrap_content"-->
+         <!--android:layout_alignParentBottom="true"-->
+         <!--android:layout_alignParentRight="true"-->
+         <!--android:drawableLeft="@mipmap/likes"-->
+         <!--android:gravity="center"-->
+         <!--android:textColor="@color/smssdk_gray"-->
+         <!--android:padding="12dp"-->
+         <!--android:text="100"/>-->
+
+
+    <com.example.mayn.myapp.UI.ImageTextView
+        android:id="@+id/tx_likes"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:padding="12dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:textColor="@color/smssdk_white"
+        android:text="123121"
+        app:drawable="@mipmap/likes"
+        app:drawableHeight="24dp"
+        app:drawableWidth="24dp"
+        app:position="1"
+        />
+
+</RelativeLayout>

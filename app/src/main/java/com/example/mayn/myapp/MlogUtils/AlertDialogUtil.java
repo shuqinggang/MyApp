@@ -24,7 +24,7 @@ public class AlertDialogUtil {
         AlertDialog.Builder alertDialog=new AlertDialog.Builder(mContext);
         alertDialog.setTitle("提示");
         alertDialog.setMessage(message);
-        alertDialog.setCancelable(false);
+        alertDialog.setCancelable(true);
         alertDialog.setPositiveButton("确定", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {

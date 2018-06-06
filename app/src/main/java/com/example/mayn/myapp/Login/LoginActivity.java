@@ -19,6 +19,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.mayn.myapp.BaseActivity;
 import com.example.mayn.myapp.MainActivity;
 import com.example.mayn.myapp.MlogUtils.AlertDialogUtil;
 import com.example.mayn.myapp.MlogUtils.DialogUtil;
@@ -35,7 +36,7 @@ import cn.smssdk.EventHandler;
 import cn.smssdk.SMSSDK;
 import cn.smssdk.gui.RegisterPage;
 
-public class LoginActivity extends Activity{
+public class LoginActivity extends BaseActivity{
 
     @BindView(R.id.et_username)
     EditText etUsername;

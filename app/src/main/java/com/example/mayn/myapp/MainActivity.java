@@ -141,6 +141,15 @@ public class MainActivity extends BaseActivity {
     }
 
     public void changTab(int position) {
+        if(position==0){
+            titleTxt.setText(getResources().getString(R.string.first_tab));
+        }else if(position==1){
+            titleTxt.setText(getResources().getString(R.string.discorve_tab));
+        }else if(position==2){
+            titleTxt.setText(getResources().getString(R.string.message_tab));
+        }else {
+            titleTxt.setText(getResources().getString(R.string.set_tab));
+        }
         if(position<listFragment.size())
             viewpage.setCurrentItem(position);
         for (TabButton t : list) {
@@ -189,6 +198,7 @@ public class MainActivity extends BaseActivity {
         }
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
     }
+
 
     public void exitApp() {
         System.exit(0);

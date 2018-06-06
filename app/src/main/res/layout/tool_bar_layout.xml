@@ -12,6 +12,7 @@
         android:gravity="center"
         android:textColor="@color/smssdk_white"
         android:drawableLeft="@mipmap/back"
+        android:visibility="gone"
         android:text="返回"/>
         <TextView
             android:id="@+id/title_txt"
@@ -32,6 +33,7 @@
         android:text="menu"
         android:textColor="@color/smssdk_white"
         android:layout_alignParentRight="true"
+        android:visibility="gone"
         />
 
 </RelativeLayout>
