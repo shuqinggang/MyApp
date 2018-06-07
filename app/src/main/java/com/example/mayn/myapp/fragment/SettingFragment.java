@@ -42,7 +42,6 @@ public class SettingFragment extends BaseFragment {
     protected void init() {
         mainActivity = (MainActivity) getActivity();
         Glide.with(this).load(R.mipmap.one).centerCrop().transform(new GlideCircleTransform(mainActivity)).into(userImg);
-
     }
 
 }

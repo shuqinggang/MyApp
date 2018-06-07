@@ -1,5 +1,7 @@
 package com.example.mayn.myapp.Interface;
 
+import android.content.Context;
+
 import java.util.List;
 
 /**
@@ -7,6 +9,6 @@ import java.util.List;
  */
 
 public interface IFirstData<T> {
-    List<T> getNextData(int page);
+    List<T> getNextData(int page, Context context);
     List<T> getMessageData();
 }
