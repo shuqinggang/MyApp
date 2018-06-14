@@ -9,6 +9,7 @@ import android.net.Uri;
 import android.support.annotation.Nullable;
 import android.util.Log;
 import android.view.View;
+import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.VideoView;
@@ -19,6 +20,11 @@ import com.chad.library.adapter.base.BaseViewHolder;
 import com.example.mayn.myapp.R;
 import com.example.mayn.myapp.bean.FirstBean;
 import com.example.mayn.myapp.bean.FirstWangyi;
+import com.shuyu.gsyvideoplayer.GSYVideoManager;
+import com.shuyu.gsyvideoplayer.builder.GSYVideoOptionBuilder;
+import com.shuyu.gsyvideoplayer.listener.GSYSampleCallBack;
+import com.shuyu.gsyvideoplayer.utils.GSYVideoHelper;
+import com.shuyu.gsyvideoplayer.video.StandardGSYVideoPlayer;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -30,7 +36,7 @@ import java.util.Map;
 public class FirstAdapter extends BaseQuickAdapter<FirstWangyi.VideoBean,BaseViewHolder>{
     Context mcontext;
     boolean isscroll=false;
-    public static int pos=0;
+    public static  int pos=0;
 
     public FirstAdapter(int layoutId, Context context) {
         super(layoutId);
@@ -40,37 +46,70 @@ public class FirstAdapter extends BaseQuickAdapter<FirstWangyi.VideoBean,BaseVie
 
     @Override
     protected void convert(final BaseViewHolder helper, final FirstWangyi.VideoBean item) {
-          final ImageView img=helper.getView(R.id.images);
-          final VideoView videoView=helper.getView(R.id.video);
-          final ImageView img_start=helper.getView(R.id.img_start);
-          Glide.with(mContext).load(item.getCover()).placeholder(R.mipmap.ten).dontAnimate().into(img);
+        TextView title=helper.getView(R.id.titles);
+        TextView infor=helper.getView(R.id.rv_tx);
+        ImageView img=new ImageView(mcontext);
+        img.setImageResource(R.mipmap.ten);
+        GSYVideoOptionBuilder gsyVideoOptionBuilder = new GSYVideoOptionBuilder();
+        img.setScaleType(ImageView.ScaleType.CENTER_CROP);
+        final StandardGSYVideoPlayer gsyVideoPlayer=helper.getView(R.id.video);
+        title.setText(item.getTitle()+"");
+        infor.setText(item.getCategory());
+        Glide.with(mContext).load(item.getCover()).into(img);
+        gsyVideoOptionBuilder
+                .setIsTouchWiget(false)
+                .setThumbImageView(img)
+                .setUrl(item.getMp4_url())
+                .setSetUpLazy(true)//lazy可以防止滑动卡顿
+                .setVideoTitle(item.getTitle())
+                .setCacheWithPlay(true)
+                .setRotateViewAuto(true)
+                .setLockLand(true)
+                .setPlayTag(TAG)
+                .setShowFullAnimation(true)
+                .setNeedLockFull(true)
+                .setPlayPosition(helper.getPosition())
+                .setVideoAllCallBack(new GSYSampleCallBack() {
+                    @Override
+                    public void onPrepared(String url, Object... objects) {
+                        super.onPrepared(url, objects);
+                        if (!gsyVideoPlayer.isIfCurrentIsFullscreen()) {
+                            //静音
+                            GSYVideoManager.instance().setNeedMute(false);
+                        }
 
-          img_start.setOnClickListener(new View.OnClickListener() {
-              @Override
-              public void onClick(View v) {
-                  img.setVisibility(View.GONE);
-                  img_start.setVisibility(View.GONE);
-                  videoView.setVisibility(View.VISIBLE);
-                  Uri uri=Uri.parse(item.getMp4_url());
-                  videoView.setVideoURI(uri);
-                  videoView.start();
-                  videoView.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
-                      @Override
-                      public void onCompletion(MediaPlayer mp) {
-                          mp.stop();
-                          img.setVisibility(View.VISIBLE);
-                          img_start.setVisibility(View.VISIBLE);
-                          videoView.setVisibility(View.GONE);
-                      }
-                  });
-              }
-          });
-          if(isscroll){
-              videoView.pause();
-              img.setVisibility(View.VISIBLE);
-              img_start.setVisibility(View.VISIBLE);
-              videoView.setVisibility(View.GONE);
-          }
+                    }
+
+                    @Override
+                    public void onQuitFullscreen(String url, Object... objects) {
+                        super.onQuitFullscreen(url, objects);
+                        //全屏不静音
+                        GSYVideoManager.instance().setNeedMute(true);
+                    }
+
+                    @Override
+                    public void onEnterFullscreen(String url, Object... objects) {
+                        super.onEnterFullscreen(url, objects);
+                        GSYVideoManager.instance().setNeedMute(false);
+                        gsyVideoPlayer.getCurrentPlayer().getTitleTextView().setText((String)objects[0]);
+                    }
+                }).build(gsyVideoPlayer);
+
+
+        //增加title
+        gsyVideoPlayer.getTitleTextView().setVisibility(View.GONE);
+
+        //设置返回键
+        gsyVideoPlayer.getBackButton().setVisibility(View.GONE);
+
+        //设置全屏按键功能
+        gsyVideoPlayer.getFullscreenButton().setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+               resolveFullBtn(gsyVideoPlayer);
+            }
+        });
+
 
 //        TextView names=helper.getView(R.id.tx_name);
 //        ImageView imgBackground=helper.getView(R.id.item_img);
@@ -99,7 +138,12 @@ public class FirstAdapter extends BaseQuickAdapter<FirstWangyi.VideoBean,BaseVie
 //            }
 //        });
     }
-
+    /**
+     * 全屏幕按键处理
+     */
+    private void resolveFullBtn(final StandardGSYVideoPlayer standardGSYVideoPlayer) {
+        standardGSYVideoPlayer.startWindowFullscreen(mcontext, true, true);
+    }
 
     public void setScrolling(boolean isscroll){
         this.isscroll = isscroll;

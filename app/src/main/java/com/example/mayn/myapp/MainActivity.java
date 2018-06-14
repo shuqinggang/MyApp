@@ -3,6 +3,7 @@ package com.example.mayn.myapp;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.os.Build;
 import android.os.Bundle;
 import android.provider.Settings;
 import android.support.annotation.NonNull;
@@ -10,7 +11,9 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AlertDialog;
+import android.transition.Explode;
 import android.view.View;
+import android.view.Window;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -23,6 +26,7 @@ import com.example.mayn.myapp.fragment.DiscoverFragment;
 import com.example.mayn.myapp.fragment.FirstFragment;
 import com.example.mayn.myapp.fragment.MessageFragment;
 import com.example.mayn.myapp.fragment.SettingFragment;
+import com.shuyu.gsyvideoplayer.GSYVideoManager;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -61,6 +65,11 @@ public class MainActivity extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+//        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+//            getWindow().requestFeature(Window.FEATURE_CONTENT_TRANSITIONS);
+//            getWindow().setEnterTransition(new Explode());
+//            getWindow().setExitTransition(new Explode());
+//        }
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
         list = new ArrayList<>();
@@ -145,10 +154,13 @@ public class MainActivity extends BaseActivity {
             titleTxt.setText(getResources().getString(R.string.first_tab));
         }else if(position==1){
             titleTxt.setText(getResources().getString(R.string.discorve_tab));
+            GSYVideoManager.onPause();
         }else if(position==2){
             titleTxt.setText(getResources().getString(R.string.message_tab));
+            GSYVideoManager.onPause();
         }else {
             titleTxt.setText(getResources().getString(R.string.set_tab));
+            GSYVideoManager.onPause();
         }
         if(position<listFragment.size())
             viewpage.setCurrentItem(position);
@@ -198,7 +210,6 @@ public class MainActivity extends BaseActivity {
         }
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
     }
-
 
     public void exitApp() {
         System.exit(0);
