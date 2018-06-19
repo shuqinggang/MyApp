@@ -33,6 +33,7 @@ public class MessageAdapter extends BaseQuickAdapter<MessageBean,BaseViewHolder>
        // imageView.setImageResource(Integer.parseInt(item.getImg()));
         message_name.setText(item.getGroupname());
         message_u.setText(item.getInfor());
-
     }
+
+
 }

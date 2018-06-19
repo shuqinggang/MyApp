@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+        <ImageView
+            android:id="@+id/img_friend_back"
+            android:layout_width="match_parent"
+            android:layout_height="180dp"
+            android:src="@mipmap/friemds_back"
+            android:scaleType="centerCrop"/>
+
+    <LinearLayout
+        android:id="@+id/ll_takes"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:layout_below="@+id/img_friend_back"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true">
+        <ImageView
+            android:id="@+id/my_img"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:src="@mipmap/seven"
+            android:scaleType="centerCrop"
+            android:layout_marginRight="10dp"
+
+            />
+       <ImageView
+           android:id="@+id/img_take_photo"
+           android:layout_width="40dp"
+           android:layout_height="40dp"
+           android:src="@mipmap/take_photo"
+           android:scaleType="centerCrop"
+           android:layout_marginRight="10dp"
+        />
+    </LinearLayout>
+
+   <android.support.v7.widget.RecyclerView
+       android:id="@+id/my_friends_rv"
+       android:layout_below="@id/ll_takes"
+       android:layout_width="match_parent"
+       android:layout_height="match_parent">
+
+   </android.support.v7.widget.RecyclerView>
+</RelativeLayout>

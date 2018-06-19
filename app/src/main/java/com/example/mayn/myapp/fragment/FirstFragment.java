@@ -15,11 +15,10 @@ import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.example.mayn.myapp.Interface.RefreshRecyclerview;
 import com.example.mayn.myapp.MainActivity;
 import com.example.mayn.myapp.R;
-import com.example.mayn.myapp.UI.ListPtrFrameLayout;
 import com.example.mayn.myapp.adapter.FirstAdapter;
-import com.example.mayn.myapp.bean.FirstWangyi;
 import com.example.mayn.myapp.presenter.FirstPresenter;
 import com.shuyu.gsyvideoplayer.GSYVideoManager;
+
 
 import java.util.List;
 
@@ -44,7 +43,6 @@ public class FirstFragment extends BaseFragment implements RefreshRecyclerview {
 //    ListPtrFrameLayout ptrLayout;
     FirstAdapter firstAdapter;
     FirstPresenter firstPresenter;
-    public int firstVisibleItem, lastVisibleItem, visibleCount;
     public FirstFragment() {
         // Required empty public constructor
     }

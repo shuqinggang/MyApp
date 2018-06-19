@@ -148,4 +148,28 @@
                     />
             </LinearLayout>
 
+    <LinearLayout
+        android:id="@+id/my_ll"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_marginTop="18dp"
+        android:background="@color/smssdk_white"
+        android:gravity="center"
+
+        android:orientation="horizontal">
+        <ImageView
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_marginLeft="18dp"
+            android:scaleType="center"
+            android:src="@mipmap/my"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="16sp"
+            android:textSize="16sp"
+            android:text="设置"
+            />
+    </LinearLayout>
+
 </LinearLayout>

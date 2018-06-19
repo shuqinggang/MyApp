@@ -6,6 +6,8 @@ import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.app.ActivityOptionsCompat;
 import android.text.Spannable;
 import android.text.SpannableStringBuilder;
 import android.text.TextUtils;
@@ -87,7 +89,9 @@ public class LoginActivity extends BaseActivity{
                 @Override
                 public void run() {
                     dialogUtil.closeDialog();
-                    startActivity(new Intent(mcontext, MainActivity.class));
+                    Intent intents=new Intent(LoginActivity.this,MainActivity.class);
+                    ActivityOptionsCompat activityOptions = ActivityOptionsCompat.makeSceneTransitionAnimation(LoginActivity.this);
+                    ActivityCompat.startActivity(LoginActivity.this, intents, activityOptions.toBundle());
                 }
             },3000);
         }
@@ -108,7 +112,10 @@ public class LoginActivity extends BaseActivity{
                     public void run() {
                         dialogUtil.closeDialog();
                         SharePrefreUtils.savaUserInfor(etUsername.getText().toString().trim(), etPassword.getText().toString().trim());
-                        startActivity(new Intent(mcontext, MainActivity.class));
+                        Intent intents=new Intent(LoginActivity.this,MainActivity.class);
+                        ActivityOptionsCompat activityOptions = ActivityOptionsCompat.makeSceneTransitionAnimation(LoginActivity.this);
+                        ActivityCompat.startActivity(LoginActivity.this, intents, activityOptions.toBundle());
+
                     }
                 },3000);
 
