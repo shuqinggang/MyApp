@@ -8,6 +8,7 @@ import android.support.v4.app.Fragment;
 import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,10 +16,12 @@ import android.view.ViewGroup;
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.example.mayn.myapp.Interface.RefreshRecyclerview;
 import com.example.mayn.myapp.MainActivity;
+import com.example.mayn.myapp.NetworkUtils.ProxyMy;
 import com.example.mayn.myapp.R;
 import com.example.mayn.myapp.TypeActivity;
 import com.example.mayn.myapp.adapter.MessageAdapter;
 import com.example.mayn.myapp.bean.MultipleItem;
+import com.example.mayn.myapp.bean.Person;
 import com.example.mayn.myapp.presenter.FirstPresenter;
 
 import java.util.ArrayList;
@@ -61,6 +64,10 @@ public class MessageFragment extends BaseFragment implements RefreshRecyclerview
                 startActivity(new Intent(mainActivity, TypeActivity.class));
             }
         });
+        ProxyMy proxyMy=new ProxyMy();
+        Person persons=proxyMy.getProxy();
+        String messages = persons.dance("I LOVE YOU");
+        Log.e("messages",messages);
     }
 
     @Override

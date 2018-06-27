@@ -110,6 +110,7 @@ public class FirstFragment extends BaseFragment implements RefreshRecyclerview {
                 }
             }
         });
+        firstAdapter.openLoadAnimation(BaseQuickAdapter.SLIDEIN_LEFT);
         lv.setAdapter(firstAdapter);
         firstPresenter.getDataList(0,mainActivity);
         firstAdapter.setOnItemClickListener(new BaseQuickAdapter.OnItemClickListener() {

@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
+import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.example.mayn.myapp.adapter.TypeAdapter;
 import com.example.mayn.myapp.bean.MultipleItem;
 
@@ -22,8 +23,9 @@ public class TypeActivity extends BaseActivity {
         recyclerView=(RecyclerView)findViewById(R.id.rv_type);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setHasFixedSize(true);
-
-        recyclerView.setAdapter(adapter=new TypeAdapter(getMultipleItemData()));
+        adapter=new TypeAdapter(getMultipleItemData());
+        adapter.openLoadAnimation(BaseQuickAdapter.SLIDEIN_LEFT);
+        recyclerView.setAdapter(adapter);
     }
 
     public static List<MultipleItem> getMultipleItemData() {

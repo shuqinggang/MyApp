@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.provider.Settings;
 import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AlertDialog;
@@ -89,7 +90,15 @@ public class MainActivity extends BaseActivity {
         viewpage.setAdapter(new FragmentPagerAdapter(getSupportFragmentManager()) {
             @Override
             public Fragment getItem(int position) {
-                return listFragment.get(position);
+                if (position==0){
+                    return new FirstFragment();
+                }else if (position==1){
+                    return new DiscoverFragment();
+                }else if(position==2) {
+                    return new MessageFragment();
+                } else{
+                    return new SettingFragment();
+                }
             }
 
             @Override
@@ -214,4 +223,5 @@ public class MainActivity extends BaseActivity {
     public void exitApp() {
         System.exit(0);
     }
+    
 }

@@ -6,6 +6,7 @@ import com.example.mayn.myapp.Interface.IFirstData;
 import com.example.mayn.myapp.NetworkUtils.GsonUtil;
 import com.example.mayn.myapp.NetworkUtils.JsonAssetsReaderUtil;
 import com.example.mayn.myapp.R;
+import com.example.mayn.myapp.bean.DialogBean;
 import com.example.mayn.myapp.bean.FirstBean;
 import com.example.mayn.myapp.bean.FirstWangyi;
 import com.example.mayn.myapp.bean.MessageBean;
@@ -30,6 +31,11 @@ public class FirstData implements IFirstData{
     @Override
     public List getMessageData() {
         return setData1();
+    }
+
+    @Override
+    public List getDatas() {
+        return getData();
     }
 
     public List setData(Context context){
@@ -74,5 +80,27 @@ public class FirstData implements IFirstData{
         }
         return list;
     }
+
+    public List<DialogBean> getData(){
+        List<DialogBean> lists=new ArrayList<>();
+        for(int i=0;i<10;i++){
+            DialogBean bean = new DialogBean();
+            if(i%3==0) {
+                bean.setName("shuqinggang"+i);
+                bean.setPhone("1744454612"+i);
+                bean.setWork("码农"+i);
+            }else if(i%4==0){
+                bean.setName("shuqinggang"+i);
+                bean.setPhone("1744454612"+i);
+                bean.setWork("码农"+i);
+            }else {
+                bean.setName("shuqinggang"+i);
+                bean.setPhone("1744454612"+i);
+                bean.setWork("码农"+i);
+            }
+            lists.add(bean);
+        }
+       return lists;
+}
 
 }

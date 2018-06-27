@@ -7,9 +7,11 @@ import android.widget.TextView;
 import com.bumptech.glide.Glide;
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.BaseViewHolder;
+import com.example.mayn.myapp.NetworkUtils.ProxyMy;
 import com.example.mayn.myapp.R;
 import com.example.mayn.myapp.UI.GlideCircleTransform;
 import com.example.mayn.myapp.bean.MessageBean;
+import com.example.mayn.myapp.bean.Person;
 
 /**
  * Created by shuqinggang on 2018/6/6.

@@ -11,4 +11,5 @@ import java.util.List;
 public interface IFirstData<T> {
     List<T> getNextData(int page, Context context);
     List<T> getMessageData();
+    List<T> getDatas();
 }

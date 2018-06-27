@@ -158,6 +158,7 @@
 
         android:orientation="horizontal">
         <ImageView
+            android:id="@+id/set_ll"
             android:layout_width="20dp"
             android:layout_height="20dp"
             android:layout_marginLeft="18dp"

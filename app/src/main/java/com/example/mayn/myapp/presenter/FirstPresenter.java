@@ -26,4 +26,8 @@ public class FirstPresenter {
    public void getMessageList(){
         view.refresh(iFirstData.getMessageData());
    }
+
+   public void getDatas(){
+       view.refresh(iFirstData.getDatas());
+   }
 }

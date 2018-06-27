@@ -1,7 +1,4 @@
 package com.example.mayn.myapp.Login;
-
-import android.annotation.SuppressLint;
-import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
@@ -11,7 +8,7 @@ import android.support.v4.app.ActivityOptionsCompat;
 import android.text.Spannable;
 import android.text.SpannableStringBuilder;
 import android.text.TextUtils;
-import android.text.style.BackgroundColorSpan;
+
 import android.text.style.ForegroundColorSpan;
 import android.view.View;
 import android.view.Window;
@@ -25,11 +22,16 @@ import com.example.mayn.myapp.BaseActivity;
 import com.example.mayn.myapp.MainActivity;
 import com.example.mayn.myapp.MlogUtils.AlertDialogUtil;
 import com.example.mayn.myapp.MlogUtils.DialogUtil;
-import com.example.mayn.myapp.MyApp;
+
 import com.example.mayn.myapp.NetworkUtils.SharePrefreUtils;
 import com.example.mayn.myapp.R;
+import com.example.mayn.myapp.bean.FirstBean;
 
+
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Iterator;
+import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -72,7 +74,7 @@ public class LoginActivity extends BaseActivity{
         inite();
     }
 
-    public void inite(){
+    private void inite(){
         if(!TextUtils.isEmpty(SharePrefreUtils.getAccount()) && !TextUtils.isEmpty(SharePrefreUtils.getPassword())){
             etUsername.setText(SharePrefreUtils.getAccount());
             etPassword.setText(SharePrefreUtils.getPassword());
@@ -146,7 +148,7 @@ public class LoginActivity extends BaseActivity{
         }
     }
 
-    public void sendCode(Context context) {
+    private void sendCode(Context context) {
         RegisterPage page = new RegisterPage();
         //如果使用我们的ui，没有申请模板编号的情况下需传null
         page.setTempCode(null);
@@ -188,6 +190,18 @@ public class LoginActivity extends BaseActivity{
             }
         });
         page.show(context);
+    }
+
+    public void getList(Context mcontext){
+        List<FirstBean> lists=new ArrayList<>();
+        Iterator<FirstBean> iterator=lists.iterator();
+        while (iterator.hasNext()){
+            FirstBean firstBean= iterator.next();
+            if(firstBean.getSex().equals("男")){
+                iterator.remove();
+            }
+        }
+        return ;
     }
 
 }

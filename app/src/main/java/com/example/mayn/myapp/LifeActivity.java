@@ -146,4 +146,5 @@ public class LifeActivity extends BaseActivity {
         super.onDestroy();
         Log.e("LifeActivity","onDestroy");
     }
+
 }
