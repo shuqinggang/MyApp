@@ -48,6 +48,8 @@ public class FirstAdapter extends BaseQuickAdapter<FirstWangyi.VideoBean,BaseVie
     protected void convert(final BaseViewHolder helper, final FirstWangyi.VideoBean item) {
         TextView title=helper.getView(R.id.titles);
         TextView infor=helper.getView(R.id.rv_tx);
+        TextView tx_text=helper.getView(R.id.tx_text);
+        Log.e("tx_text",tx_text.getWidth()+"");
         ImageView img=new ImageView(mcontext);
         img.setImageResource(R.mipmap.ten);
         GSYVideoOptionBuilder gsyVideoOptionBuilder = new GSYVideoOptionBuilder();

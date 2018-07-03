@@ -7,6 +7,7 @@ import android.support.annotation.NonNull;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.DisplayMetrics;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.Window;
@@ -48,11 +49,12 @@ public class RecyclerViewDialog extends Dialog{
          setContentView(view);
 
         Window window=getWindow();
+        window.setGravity(Gravity.BOTTOM);
         WindowManager.LayoutParams lp=window.getAttributes();
         DisplayMetrics displayMetrics=mcontext.getResources().getDisplayMetrics();
         lp.width= (int)(displayMetrics.widthPixels*0.8);
         //   lp.height= (int)(displayMetrics.heightPixels*0.8);
-        window.setAttributes(lp);
+         window.setAttributes(lp);
          LinearLayoutManager linearLayoutManager=new LinearLayoutManager(mcontext,RecyclerView.VERTICAL,false);
          rv.setLayoutManager(linearLayoutManager);
          mDialogAdapter=new DialogAdapter(getData());

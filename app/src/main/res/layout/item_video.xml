@@ -40,5 +40,10 @@
             android:textSize="14sp"
             android:layout_marginLeft="8dp"
             android:text="电影"/>
+        <TextView
+            android:id="@+id/tx_text"
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:text="我的"/>
     </LinearLayout>
 </LinearLayout>

@@ -142,8 +142,8 @@ public class MainActivity extends BaseActivity {
             case R.id.discorve_tab:
                 changTab(1);
                 titleTxt.setText(getResources().getString(R.string.discorve_tab));
-                String f = FileUtils.getStringFromFile(FileUtils.filePath + FileUtils.fileName);
-                LogUtil.e("FileContent", f);
+//                String f = FileUtils.getStringFromFile(FileUtils.filePath + FileUtils.fileName);
+//                LogUtil.e("FileContent", f);
                 break;
             case R.id.message_tab:
                 changTab(2);

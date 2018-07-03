@@ -12,10 +12,12 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 
+import com.example.mayn.myapp.LinelaoutActivity;
 import com.example.mayn.myapp.Login.LoginActivity;
 import com.example.mayn.myapp.MainActivity;
 import com.example.mayn.myapp.NetworkUtils.LogUtil;
 import com.example.mayn.myapp.R;
+import com.example.mayn.myapp.ShopActivity;
 import com.example.mayn.myapp.UI.FriendsActivity;
 
 import butterknife.BindView;
@@ -28,6 +30,10 @@ public class DiscoverFragment extends BaseFragment  {
 
     @BindView(R.id.ll_friend)
     LinearLayout llFriend;
+    @BindView(R.id.ll_phones)
+    LinearLayout llPhones;
+    @BindView(R.id.ll_store)
+    LinearLayout llStore;
     MainActivity mainActivity;
     public DiscoverFragment() {
         // Required empty public constructor
@@ -48,7 +54,7 @@ public class DiscoverFragment extends BaseFragment  {
       mainActivity=(MainActivity)getActivity();
     }
 
-    @OnClick({R.id.ll_friend,R.id.ll_scan})
+    @OnClick({R.id.ll_friend,R.id.ll_scan,R.id.ll_phones,R.id.ll_store})
     public void onclickLL(View view){
         switch (view.getId()){
             case R.id.ll_friend:
@@ -58,6 +64,12 @@ public class DiscoverFragment extends BaseFragment  {
                 break;
             case R.id.ll_scan:
                 LogUtil.e("DiscoverFragment","ll_scan");
+                break;
+            case R.id.ll_phones:
+                startActivity(new Intent(mainActivity, LinelaoutActivity.class));
+                break;
+            case R.id.ll_store:
+                startActivity(new Intent(mainActivity, ShopActivity.class));
                 break;
                 default:
                     break;

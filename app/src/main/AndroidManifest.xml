@@ -85,7 +85,9 @@
         </service>
 
         <activity android:name=".RxjavaActivity" />
-        <activity android:name=".DownFileActivity"></activity>
+        <activity android:name=".DownFileActivity" />
+        <activity android:name=".LinelaoutActivity"></activity>
+        <activity android:name=".ShopActivity"></activity>
     </application>
 
 </manifest>

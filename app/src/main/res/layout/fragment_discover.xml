@@ -150,6 +150,7 @@
             </LinearLayout>
 
             <LinearLayout
+                android:id="@+id/ll_store"
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
                 android:background="@color/smssdk_white"
@@ -167,7 +168,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="16sp"
                     android:textSize="16sp"
-                    android:text="购物车"
+                    android:text="网上商城"
                     />
             </LinearLayout>
 
@@ -238,6 +239,7 @@
             </LinearLayout>
 
             <LinearLayout
+                android:id="@+id/ll_phones"
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
                 android:background="@color/smssdk_white"
@@ -255,7 +257,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="16sp"
                     android:textSize="16sp"
-                    android:text="任务"
+                    android:text="通讯录"
                     />
             </LinearLayout>
 

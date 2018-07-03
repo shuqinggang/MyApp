@@ -15,7 +15,10 @@ import java.util.concurrent.atomic.AtomicReference;
 import io.reactivex.Observable;
 import io.reactivex.ObservableEmitter;
 import io.reactivex.ObservableOnSubscribe;
+import io.reactivex.ObservableSource;
 import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.functions.Function;
+import io.reactivex.functions.Predicate;
 import io.reactivex.schedulers.Schedulers;
 import okhttp3.Call;
 import okhttp3.OkHttpClient;
@@ -66,6 +69,7 @@ public class DownloadManager {
                 .observeOn(AndroidSchedulers.mainThread())//在主线程回调
                 .subscribeOn(Schedulers.io())//在子线程执行
                 .subscribe(downLoadObserver);//添加观察者
+
     }
 
     public void cancel(String url) {
