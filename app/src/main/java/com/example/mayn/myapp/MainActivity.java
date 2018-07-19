@@ -21,6 +21,7 @@ import android.widget.TextView;
 import com.example.mayn.myapp.NetworkUtils.ActivityUtil;
 import com.example.mayn.myapp.NetworkUtils.FileUtils;
 import com.example.mayn.myapp.NetworkUtils.LogUtil;
+import com.example.mayn.myapp.NetworkUtils.MD5Utils;
 import com.example.mayn.myapp.UI.TabButton;
 import com.example.mayn.myapp.fragment.BaseFragment;
 import com.example.mayn.myapp.fragment.DiscoverFragment;
@@ -72,6 +73,8 @@ public class MainActivity extends BaseActivity {
 //            getWindow().setExitTransition(new Explode());
 //        }
         setContentView(R.layout.activity_main);
+        String md5= MD5Utils.ecodeTwice("1990315");
+
         ButterKnife.bind(this);
         list = new ArrayList<>();
         listFragment = new ArrayList<>();

@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <SeekBar
+        android:id="@+id/verticalSeekBar"
+        android:layout_width="match_parent"
+        android:layout_marginTop="50dp"
+        android:layout_height="wrap_content"
+        android:progressDrawable="@drawable/seekbar_style"
+        android:thumb="@drawable/wo"
+        android:max="1000"
+        android:progress="2"
+        android:splitTrack="false"
+       />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:layout_below="@+id/verticalSeekBar">
+    <com.example.mayn.myapp.NetworkUtils.VerticalSeekBar
+        android:id="@+id/verticalSeekBars"
+        android:layout_width="10dp"
+        android:layout_height="300dp"
+        android:max="100"
+        android:progress="0"
+        android:progressDrawable="@drawable/seekbar_style"
+        android:thumb="@null"
+        android:thumbOffset="-0.4dp"
+        android:maxWidth="50dip"
+        android:minWidth="50dip"
+       android:splitTrack="false"
+       />
+
+
+        <com.example.mayn.myapp.UI.VerticalProgressBar
+            style="@android:style/Widget.ProgressBar.Horizontal"
+            android:layout_marginLeft="20dp"
+            android:id="@+id/verticalProgressBar"
+            android:layout_width="wrap_content"
+            android:layout_height="300dp"
+            android:max="1000"
+            android:progress="500"
+            android:maxWidth="10dip"
+            android:minWidth="10dip"/>
+
+        <com.example.mayn.myapp.UI.PureVerticalSeekBar
+            android:layout_width="10dp"
+            android:layout_height="300dp"
+            android:layout_marginLeft="20dp"
+            app:dragable="true"
+            />
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/btn_add"
+        android:layout_width="match_parent"
+        android:layout_alignParentBottom="true"
+        android:layout_height="50dp"
+        android:text="增加"/>
+</RelativeLayout>

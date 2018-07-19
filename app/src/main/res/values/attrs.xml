@@ -14,4 +14,13 @@
         <attr name="position" format="integer"/>
     </declare-styleable>
 
+
+    <declare-styleable name="VerticalSeekBar">
+        <attr name="vertical_color" format="color" />
+        <attr name="circle_radius" format="dimension" />
+        <attr name="circle_color" format="color" />
+        <attr name="dragable" format="boolean" />
+        <attr name="image_background" format="reference" />
+    </declare-styleable>
+
 </resources>

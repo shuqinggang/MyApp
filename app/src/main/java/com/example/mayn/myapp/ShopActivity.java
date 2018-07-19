@@ -73,6 +73,8 @@ public class ShopActivity extends BaseActivity implements RightAdapter.ShopOnCli
         rightAdapter=new RightAdapter(getDataTwo());
         rvRight.setAdapter(rightAdapter);
 
+
+
         leftAdapter.setOnItemClickListener(new BaseQuickAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(BaseQuickAdapter adapter, View view, int position) {

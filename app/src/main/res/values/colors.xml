@@ -9,5 +9,5 @@
     <color name="cTabChecked">#0574E6</color>
     <color name="cTabNoCheck">#727272</color>
     <color name="btn_login">#00BFFF</color>
-
+     <color name="myColor">#50E018</color>
 </resources>

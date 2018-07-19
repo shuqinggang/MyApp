@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="horizontal"
+    android:gravity="center"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+
+    <com.example.mayn.myapp.UI.PureVerticalSeekBar
+        android:id="@+id/myLineView"
+        android:visibility="gone"
+        android:layout_marginLeft="30dp"
+        android:layout_width="8dp"
+        android:layout_height="300dp"
+        app:circle_color="@color/colorAccent"
+        app:dragable="true"/>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/mybtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:text="增加20"/>
+
+
+        <Button
+            android:id="@+id/mybtns"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="35dp"
+            android:text="增加35"/>
+
+    </LinearLayout>
+
+    <com.example.mayn.myapp.UI.CustView
+        android:layout_width="300dp"
+        android:layout_height="wrap_content" />
+
+
+</LinearLayout>
