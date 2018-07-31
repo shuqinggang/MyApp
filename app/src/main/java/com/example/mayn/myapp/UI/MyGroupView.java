@@ -1,6 +1,8 @@
 package com.example.mayn.myapp.UI;
 
 import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.util.AttributeSet;
 import android.view.View;
 import android.view.ViewGroup;
@@ -47,5 +49,10 @@ public class MyGroupView extends ViewGroup{
     @Override
     protected void measureChildWithMargins(View child, int parentWidthMeasureSpec, int widthUsed, int parentHeightMeasureSpec, int heightUsed) {
         super.measureChildWithMargins(child, parentWidthMeasureSpec, widthUsed, parentHeightMeasureSpec, heightUsed);
+    }
+
+
+    public void dealtailBitmap(String path){
+        Bitmap bitmap= BitmapFactory.decodeFile(path);
     }
 }

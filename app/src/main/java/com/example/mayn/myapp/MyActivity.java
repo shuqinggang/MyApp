@@ -3,7 +3,9 @@ package com.example.mayn.myapp;
 import android.Manifest;
 import android.annotation.TargetApi;
 import android.content.ContentUris;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.database.Cursor;
 import android.graphics.Bitmap;
@@ -21,6 +23,8 @@ import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.example.mayn.myapp.NetworkUtils.SharePrefreUtils;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -74,7 +78,15 @@ public class MyActivity extends BaseActivity {
         switch (requestCode) {
             case TAKE_PHOTO://拍照
                 if (resultCode == RESULT_OK) {
-                    cropPhoto(imageUri);//裁剪图片
+                    //cropPhoto(imageUri);//裁剪图片
+                     Bitmap btm=null;
+                    try {
+                        btm = BitmapFactory.decodeStream(getContentResolver().openInputStream(imageUri));
+                    } catch (FileNotFoundException e) {
+                        e.printStackTrace();
+                    }
+                    Log.d("TAG", "size " + btm.getByteCount());
+                    iv.setImageBitmap(btm);
                 }
                 break;
             case CHOOSE_PHOTO://打开相册
@@ -228,4 +240,9 @@ public class MyActivity extends BaseActivity {
         cropPhoto(uri);
     }
 
+
+    public void setSharePrefre(){
+        SharedPreferences sharedPreferences=getSharedPreferences("My", Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor= sharedPreferences.edit();
+    }
 }

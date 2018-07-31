@@ -19,13 +19,15 @@
     <!-- 允许程序访问额外的定位提供者指令获取模拟定位信息 -->
     <uses-permission android:name="android.permission.ACCESS_LOCATION_EXTRA_COMMANDS" />
     <!-- 网络链接 -->
-    <uses-permission android:name="android.permission.INTERNET"></uses-permission>
+    <uses-permission android:name="android.permission.INTERNET" />
     <!-- 获取网络状态 -->
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"></uses-permission>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <!-- 更改wifi连状态 -->
     <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
     <!-- 获取wifi状态 -->
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.FLASHLIGHT" />
 
     <application
         android:name=".MyApp"
@@ -83,21 +85,23 @@
         <activity android:name=".LinelaoutActivity" />
         <activity android:name=".ShopActivity" />
         <activity android:name=".MyTestActivity" />
-        <activity android:name=".SeekbarActivity"></activity>
-        <activity android:name=".MyLineVeiwActivity">
-        </activity>
+        <activity android:name=".SeekbarActivity" />
+        <activity android:name=".MyLineVeiwActivity" />
 
         <meta-data
             android:name="com.baidu.lbsapi.API_KEY"
             android:value="DC0LiEZA14UQa6AIkza2m2ieYGfrozoz" />
 
-        <activity android:name=".GroupViewActivity">
+        <activity android:name=".GroupViewActivity" />
+        <activity android:name=".MyBitmapActivity"></activity>
+        <activity android:name=".MyCameraActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".ImageViewActivity"></activity>
     </application>
 
 </manifest>
